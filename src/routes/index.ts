@@ -4,6 +4,7 @@ import {
   deleteProductController,
   findProductByIdController,
   listProductsController,
+  updateProductController,
 } from "../initApp";
 import { NextFunction, Request, RequestHandler, Response, Router } from "express";
 
@@ -29,6 +30,11 @@ router.post(
   "/products",
   checkEmptyBody,
   asyncHandler((request: Request, response: Response) => createProductController.handle(request, response))
+);
+
+router.put(
+  "/products/:id",
+  asyncHandler((request: Request, response: Response) => updateProductController.handle(request, response))
 );
 
 router.delete(

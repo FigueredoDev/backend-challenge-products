@@ -2,11 +2,13 @@ import { CreateProductController } from "./Controllers/CreateProductController";
 import { DeleteProductController } from "./Controllers/DeleteProductController";
 import { FindProductByIdController } from "./Controllers/FindProductByIdController";
 import { ListProductsController } from "./Controllers/ListProductsController";
+import { UpdateProductController } from "./Controllers/UpdateProductController";
 import { IController } from "./Controllers/interfaces/IController";
 import { CreateProductUseCase } from "./UseCases/CreateProduct/CreateProductsUseCase";
 import { DeleteProductUseCase } from "./UseCases/DeleteProduct/DeleteProductUseCase";
 import { FindProductByIdUseCase } from "./UseCases/FindProduct/FindProductByIdUseCase";
 import { ListProductsUseCase } from "./UseCases/ListProducts/ListProductsUseCase";
+import { UpdateProductUseCase } from "./UseCases/UpdateProduct/UpdateProductUseCase";
 import { PostgresProductRepository } from "./infrastructure/Database/Implementations/PostgresProductRepository";
 
 function buildCreateProductController(): IController {
@@ -33,7 +35,14 @@ function buildFindProductByIdController(): IController {
   return new FindProductByIdController(findProductByIdUseCase);
 }
 
+function buildUpdateProductController(): IController {
+  const postgresProductRepository = new PostgresProductRepository();
+  const updateProductUseCase = new UpdateProductUseCase(postgresProductRepository);
+  return new UpdateProductController(updateProductUseCase);
+}
+
 export const createProductController = buildCreateProductController();
 export const listProductsController = buildListProductController();
 export const deleteProductController = buildDeleteProductController();
 export const findProductByIdController = buildFindProductByIdController();
+export const updateProductController = buildUpdateProductController();

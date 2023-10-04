@@ -1,5 +1,6 @@
 import { Product } from "../../../Domain/Entities/Products";
 import { IProductRepository } from "../../../Domain/Repositories/IProductRepository";
+import { UpdateProductDto } from "../../../UseCases/dto/UpdateProductDto";
 import { pool } from "../DatabaseConnection";
 
 export class PostgresProductRepository implements IProductRepository {
@@ -27,10 +28,10 @@ export class PostgresProductRepository implements IProductRepository {
     return rows[0] as Product;
   }
 
-  async update(product: Product): Promise<Product> {
+  async update(id: string, product: UpdateProductDto): Promise<Product> {
     const { rows } = await pool.query(
       "UPDATE products SET name = $1, description = $2, price = $3, stock = $4 WHERE id = $5 RETURNING *",
-      [product.name, product.description, product.price, product.stock, product.id]
+      [product.name, product.description, product.price, product.stock, id]
     );
 
     return rows[0] as Product;
