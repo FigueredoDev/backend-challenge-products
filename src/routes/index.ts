@@ -1,5 +1,10 @@
 import { checkEmptyBody } from "../utils/validations";
-import { createProductController, deleteProductController, listProductsController } from "../initApp";
+import {
+  createProductController,
+  deleteProductController,
+  findProductByIdController,
+  listProductsController,
+} from "../initApp";
 import { NextFunction, Request, RequestHandler, Response, Router } from "express";
 
 const router = Router();
@@ -13,6 +18,11 @@ const asyncHandler = (fn: (req: Request, res: Response, next: NextFunction) => P
 router.get(
   "/products",
   asyncHandler((request: Request, response: Response) => listProductsController.handle(request, response))
+);
+
+router.get(
+  "/products/:id",
+  asyncHandler((request: Request, response: Response) => findProductByIdController.handle(request, response))
 );
 
 router.post(
