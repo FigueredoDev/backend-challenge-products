@@ -1,7 +1,6 @@
-import { Router } from "express";
-import { createProductController } from "../initApp";
 import { checkEmptyBody } from "../utils/validations";
-import { Request, Response, NextFunction, RequestHandler } from "express";
+import { createProductController, listProductsController } from "../initApp";
+import { NextFunction, Request, RequestHandler, Response, Router } from "express";
 
 const router = Router();
 
@@ -10,6 +9,11 @@ const asyncHandler = (fn: (req: Request, res: Response, next: NextFunction) => P
     Promise.resolve(fn(req, res, next)).catch(next);
   };
 };
+
+router.get(
+  "/products",
+  asyncHandler((request: Request, response: Response) => listProductsController.handle(request, response))
+);
 
 router.post(
   "/products",
