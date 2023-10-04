@@ -1,16 +1,14 @@
 import { Request, Response } from "express";
 import { BusinessError } from "../errors/BusinessError";
 import { ICreateProductUseCase } from "../UseCases/CreateProduct/ICreateProduct";
+import { IController } from "./interfaces/IController";
 
-export class CreateProductController {
+export class CreateProductController implements IController {
   constructor(private readonly createProductUseCase: ICreateProductUseCase) {}
 
   async handle(request: Request, response: Response) {
     try {
-      console.log(request.body);
-
       const product = await this.createProductUseCase.execute(request.body);
-      console.log(product);
 
       return response.status(201).json(product);
     } catch (error) {
@@ -19,8 +17,6 @@ export class CreateProductController {
           message: error.message,
         });
       }
-
-      console.log(error);
 
       return response.status(500).json({ message: "Internal server error" });
     }
