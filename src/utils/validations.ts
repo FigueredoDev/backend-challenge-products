@@ -1,3 +1,4 @@
+import { NextFunction, Request, Response } from "express";
 import { BusinessError } from "../errors/BusinessError";
 
 export const validateProductDescription = (description?: string): void => {
@@ -16,4 +17,11 @@ export const validateProductStock = (stock: number): void => {
   if (stock < 0 || !Number.isInteger(stock)) {
     throw new BusinessError("Product stock must be a positive integer.");
   }
+};
+
+export const checkEmptyBody = (request: Request, response: Response, next: NextFunction) => {
+  if (Object.keys(request.body).length === 0) {
+    return response.status(400).json({ error: "Request body is empty" });
+  }
+  next();
 };
