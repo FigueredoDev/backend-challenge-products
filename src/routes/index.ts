@@ -1,5 +1,5 @@
 import { checkEmptyBody } from "../utils/validations";
-import { createProductController, listProductsController } from "../initApp";
+import { createProductController, deleteProductController, listProductsController } from "../initApp";
 import { NextFunction, Request, RequestHandler, Response, Router } from "express";
 
 const router = Router();
@@ -19,6 +19,11 @@ router.post(
   "/products",
   checkEmptyBody,
   asyncHandler((request: Request, response: Response) => createProductController.handle(request, response))
+);
+
+router.delete(
+  "/products/:id",
+  asyncHandler((request: Request, response: Response) => deleteProductController.handle(request, response))
 );
 
 export default router;
