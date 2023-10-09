@@ -1,12 +1,12 @@
-import { Product } from "../../Domain/Entities/Products";
-import { IProductRepository } from "../../Domain/Repositories/IProductRepository";
+import { Product } from "../../entities/Products";
+import { ProductRepositoryInterface } from "../../repositories/ProductRepositoryInterface";
 import { BusinessError } from "../../errors/BusinessError";
 import { validateProductDescription, validateProductPrice, validateProductStock } from "../../utils/validations";
-import { UpdateProductDto } from "../dto/UpdateProductDto";
-import { IUpdateProduct } from "./IUpdateProduct";
+import { UpdateProductDto } from "../DTO/UpdateProductDto";
+import { UpdateProductUseCaseInterface } from "./UpdateProductInterface";
 
-export class UpdateProductUseCase implements IUpdateProduct {
-  constructor(private productRepository: IProductRepository) {}
+export class UpdateProductUseCase implements UpdateProductUseCaseInterface {
+  constructor(private productRepository: ProductRepositoryInterface) {}
 
   async execute(id: string, updatedFields: UpdateProductDto): Promise<Product> {
     const { name, description, price, stock } = updatedFields;

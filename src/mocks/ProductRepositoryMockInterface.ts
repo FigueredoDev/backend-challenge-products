@@ -1,11 +1,11 @@
 import { jest } from "bun:test";
-import { IProductRepository } from "../Domain/Repositories/IProductRepository";
+import { ProductRepositoryInterface } from "../repositories/ProductRepositoryInterface";
 
 export interface ProductRepositoryMockInterface {
-  findAll: jest.Mock<IProductRepository["findAll"]>;
-  findById: jest.Mock<IProductRepository["findById"]>;
-  findByName: jest.Mock<IProductRepository["findByName"]>;
-  create: jest.Mock<IProductRepository["create"]>;
-  update: jest.Mock<IProductRepository["update"]>;
-  delete: jest.Mock<IProductRepository["delete"]>;
+  findAll: jest.Mock<ProductRepositoryInterface["findAll"]>;
+  findById: jest.Mock<ProductRepositoryInterface["findById"]>;
+  findByName: jest.Mock<ProductRepositoryInterface["findByName"]>;
+  create: jest.Mock<ProductRepositoryInterface["create"]>;
+  update: jest.Mock<ProductRepositoryInterface["update"]>;
+  delete: jest.Mock<ProductRepositoryInterface["delete"]>;
 }

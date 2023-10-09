@@ -1,13 +1,12 @@
-import { beforeAll, beforeEach, describe, expect, it, jest } from "bun:test";
+import { beforeEach, describe, expect, it, jest } from "bun:test";
 import { ProductRepositoryMockInterface } from "../../mocks/ProductRepositoryMockInterface";
-import { IFindProductById } from "./IFindProductById";
+import { FindProductByIdInterface } from "./FindProductByIdInterface";
 import { FindProductByIdUseCase } from "./FindProductByIdUseCase";
-import { Product } from "../../Domain/Entities/Products";
 import { BusinessError } from "../../errors/BusinessError";
 
 describe("FindProductByIdUseCase", () => {
   let productRepository: ProductRepositoryMockInterface;
-  let findProductByIdUseCase: IFindProductById;
+  let findProductByIdUseCase: FindProductByIdInterface;
 
   beforeEach(() => {
     productRepository = {

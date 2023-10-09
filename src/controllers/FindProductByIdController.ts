@@ -1,10 +1,10 @@
 import { Request, Response } from "express";
-import { IController } from "./interfaces/IController";
-import { IFindProductById } from "../UseCases/FindProduct/IFindProductById";
+import { ControllerInterface } from "./interfaces/ControllerInterface";
+import { FindProductByIdInterface } from "../UseCases/FindProduct/FindProductByIdInterface";
 import { BusinessError } from "../errors/BusinessError";
 
-export class FindProductByIdController implements IController {
-  constructor(private readonly findProductByIdUseCase: IFindProductById) {}
+export class FindProductByIdController implements ControllerInterface {
+  constructor(private readonly findProductByIdUseCase: FindProductByIdInterface) {}
 
   async handle(request: Request, response: Response): Promise<Response> {
     try {

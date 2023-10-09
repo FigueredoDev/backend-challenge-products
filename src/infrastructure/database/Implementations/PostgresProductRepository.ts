@@ -1,9 +1,9 @@
-import { Product } from "../../../Domain/Entities/Products";
-import { IProductRepository } from "../../../Domain/Repositories/IProductRepository";
-import { UpdateProductDto } from "../../../UseCases/dto/UpdateProductDto";
+import { Product } from "../../../entities/Products";
+import { ProductRepositoryInterface } from "../../../repositories/ProductRepositoryInterface";
+import { UpdateProductDto } from "../../../UseCases/DTO/UpdateProductDto";
 import { pool } from "../DatabaseConnection";
 
-export class PostgresProductRepository implements IProductRepository {
+export class PostgresProductRepository implements ProductRepositoryInterface {
   async findAll(): Promise<Product[]> {
     const { rows } = await pool.query("SELECT * FROM products");
     return rows as Product[];

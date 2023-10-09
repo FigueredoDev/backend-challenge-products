@@ -1,12 +1,13 @@
 import { it, jest, expect, beforeEach, describe } from "bun:test";
 import { CreateProductUseCase } from "./CreateProductsUseCase";
-import { CreateProductDto } from "../dto/CreateProductDto";
+import { CreateProductDto } from "../DTO/CreateProductDto";
 import { BusinessError } from "../../errors/BusinessError";
 import { ProductRepositoryMockInterface } from "../../mocks/ProductRepositoryMockInterface";
+import { CreateProductUseCaseInterface } from "./CreateProductInterface";
 
 describe("CreateProductUseCase", () => {
   let productRepositoryMock: ProductRepositoryMockInterface;
-  let createProductUseCase: CreateProductUseCase;
+  let createProductUseCase: CreateProductUseCaseInterface;
 
   beforeEach(() => {
     productRepositoryMock = {

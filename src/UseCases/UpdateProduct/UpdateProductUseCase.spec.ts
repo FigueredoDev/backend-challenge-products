@@ -1,14 +1,14 @@
 import { beforeEach, describe, expect, it, jest } from "bun:test";
 import { ProductRepositoryMockInterface } from "../../mocks/ProductRepositoryMockInterface";
-import { IUpdateProduct } from "./IUpdateProduct";
+import { UpdateProductUseCaseInterface } from "./UpdateProductInterface";
 import { UpdateProductUseCase } from "./UpdateProductUseCase";
-import { UpdateProductDto } from "../dto/UpdateProductDto";
-import { Product } from "../../Domain/Entities/Products";
+import { UpdateProductDto } from "../DTO/UpdateProductDto";
+import { Product } from "../../entities/Products";
 import { BusinessError } from "../../errors/BusinessError";
 
 describe("UpdateProductUseCase", () => {
   let productRepository: ProductRepositoryMockInterface;
-  let updateProductUseCase: IUpdateProduct;
+  let updateProductUseCase: UpdateProductUseCaseInterface;
 
   const id = "some-uuid";
   const product = {

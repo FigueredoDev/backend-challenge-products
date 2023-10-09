@@ -1,8 +1,9 @@
-import { IProductRepository } from "../../Domain/Repositories/IProductRepository";
+import { ProductRepositoryInterface } from "../../repositories/ProductRepositoryInterface";
 import { BusinessError } from "../../errors/BusinessError";
+import { DeleteProductUseCaseInterface } from "./DeleteProductInterface";
 
-export class DeleteProductUseCase {
-  constructor(private productRepository: IProductRepository) {}
+export class DeleteProductUseCase implements DeleteProductUseCaseInterface {
+  constructor(private productRepository: ProductRepositoryInterface) {}
 
   async execute(id: string): Promise<void> {
     const product = await this.productRepository.findById(id);

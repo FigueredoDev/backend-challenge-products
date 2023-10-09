@@ -1,12 +1,12 @@
 import { beforeEach, describe, expect, it, jest } from "bun:test";
 import { ProductRepositoryMockInterface } from "../../mocks/ProductRepositoryMockInterface";
 import { DeleteProductUseCase } from "./DeleteProductUseCase";
-import { IDeleteProduct } from "./IDeleteProduct";
 import { BusinessError } from "../../errors/BusinessError";
+import { DeleteProductUseCaseInterface } from "./DeleteProductInterface";
 
 describe("DeleteProductUseCase", () => {
   let productRepositoryMock: ProductRepositoryMockInterface;
-  let deleteProductUseCase: IDeleteProduct;
+  let deleteProductUseCase: DeleteProductUseCaseInterface;
 
   beforeEach(() => {
     productRepositoryMock = {

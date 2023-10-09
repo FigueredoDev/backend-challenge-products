@@ -1,7 +1,7 @@
-import { UpdateProductDto } from "../../UseCases/dto/UpdateProductDto";
-import { Product } from "../Entities/Products";
+import { UpdateProductDto } from "../UseCases/DTO/UpdateProductDto";
+import { Product } from "../entities/Products";
 
-export interface IProductRepository {
+export interface ProductRepositoryInterface {
   findAll(): Promise<Product[]>;
   findById(id: string): Promise<Product | undefined>;
   findByName(name: string): Promise<Product | undefined>;

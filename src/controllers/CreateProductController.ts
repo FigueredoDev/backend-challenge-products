@@ -1,10 +1,10 @@
 import { Request, Response } from "express";
 import { BusinessError } from "../errors/BusinessError";
-import { ICreateProductUseCase } from "../UseCases/CreateProduct/ICreateProduct";
-import { IController } from "./interfaces/IController";
+import { CreateProductUseCaseInterface } from "../UseCases/CreateProduct/CreateProductInterface";
+import { ControllerInterface } from "./interfaces/ControllerInterface";
 
-export class CreateProductController implements IController {
-  constructor(private readonly createProductUseCase: ICreateProductUseCase) {}
+export class CreateProductController implements ControllerInterface {
+  constructor(private readonly createProductUseCase: CreateProductUseCaseInterface) {}
 
   async handle(request: Request, response: Response) {
     try {

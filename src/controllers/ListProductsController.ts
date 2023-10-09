@@ -1,9 +1,9 @@
 import { Request, Response } from "express";
-import { IListProducts } from "../UseCases/ListProducts/IListProducts";
-import { IController } from "./interfaces/IController";
+import { ControllerInterface } from "./interfaces/ControllerInterface";
+import { ListProductsUseCaseInterface } from "../UseCases/ListProducts/ListProductsInterface";
 
-export class ListProductsController implements IController {
-  constructor(private listProductsUseCase: IListProducts) {}
+export class ListProductsController implements ControllerInterface {
+  constructor(private listProductsUseCase: ListProductsUseCaseInterface) {}
 
   async handle(request: Request, response: Response) {
     try {

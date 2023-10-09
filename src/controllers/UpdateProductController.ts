@@ -1,10 +1,10 @@
 import { Request, Response } from "express";
-import { IController } from "./interfaces/IController";
+import { ControllerInterface } from "./interfaces/ControllerInterface";
 import { BusinessError } from "../errors/BusinessError";
-import { IUpdateProduct } from "../UseCases/UpdateProduct/IUpdateProduct";
+import { UpdateProductUseCaseInterface } from "../UseCases/UpdateProduct/UpdateProductInterface";
 
-export class UpdateProductController implements IController {
-  constructor(private updateProductUseCase: IUpdateProduct) {}
+export class UpdateProductController implements ControllerInterface {
+  constructor(private updateProductUseCase: UpdateProductUseCaseInterface) {}
 
   async handle(request: Request, response: Response): Promise<Response> {
     try {

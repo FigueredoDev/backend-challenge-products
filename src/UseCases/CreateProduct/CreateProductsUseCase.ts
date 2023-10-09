@@ -1,14 +1,14 @@
-import { Product } from "../../Domain/Entities/Products";
+import { Product } from "../../entities/Products";
 
 import { v4 as uuidV4 } from "uuid";
 import { BusinessError } from "../../errors/BusinessError";
-import { CreateProductDto } from "../dto/CreateProductDto";
-import { ICreateProductUseCase } from "./ICreateProduct";
+import { CreateProductDto } from "../DTO/CreateProductDto";
+import { CreateProductUseCaseInterface } from "./CreateProductInterface";
 import { validateProductDescription, validateProductPrice, validateProductStock } from "../../utils/validations";
-import { IProductRepository } from "../../Domain/Repositories/IProductRepository";
+import { ProductRepositoryInterface } from "../../repositories/ProductRepositoryInterface";
 
-export class CreateProductUseCase implements ICreateProductUseCase {
-  constructor(private productRepository: IProductRepository) {}
+export class CreateProductUseCase implements CreateProductUseCaseInterface {
+  constructor(private productRepository: ProductRepositoryInterface) {}
 
   async execute(request: CreateProductDto): Promise<Product> {
     const { name, description, price, stock } = request;
