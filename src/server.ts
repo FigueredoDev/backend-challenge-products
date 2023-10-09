@@ -2,8 +2,7 @@ import routes from "./routes";
 import express, { ErrorRequestHandler, NextFunction, Request, Response } from "express";
 
 const server = express();
-// TODO - implement env variable for port number
-const PORT = 3333;
+const PORT = Bun.env.APPLICATION_PORT || 3000;
 
 server.use(express.json());
 server.use("/api", routes);
