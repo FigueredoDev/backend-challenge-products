@@ -53,29 +53,27 @@ Siga os passos abaixo para configurar e executar o projeto localmente:
 
 1. Clone o repositório:
 
-   ```bash
-   git clone https://github.com/FigueredoDev/backend-challenge-products
-   cd backend-challenge-products
-   ```
+ ```bash
+ git clone https://github.com/FigueredoDev/backend-challenge-products
+ cd backend-challenge-products
+ ```
 
 2. Instalar dependencias:
   ```bash
-    bun install
+  bun install
   ```
 
 4. Iniciar servidor
 
-    ```bash
-   git clone https://github.com/FigueredoDev/backend-challenge-products
-   cd backend-challenge-products
-    ```
+  ```bash
+  bun start
+  ```
 
 ### Executar testes unitarios
 
-```bash
-   git clone https://github.com/FigueredoDev/backend-challenge-products
-   cd backend-challenge-products
-```
+  ```bash
+  bun test
+  ```
 
 ## Padrões de Código
 
