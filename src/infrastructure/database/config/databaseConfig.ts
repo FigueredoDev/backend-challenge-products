@@ -1,9 +1,9 @@
-// TODO - implement env variables for database configuration
+const { DATABASE_HOST, DATABASE_PORT, DATABASE_USER, DATABASE_PASSWORD, DATABASE_NAME } = Bun.env;
 
 export const dataBaseConfig = {
-  host: "localhost",
-  port: 5432,
-  user: "root",
-  password: "root",
-  database: "myproducts",
+  host: DATABASE_HOST,
+  port: Number(DATABASE_PORT),
+  user: DATABASE_USER,
+  password: DATABASE_PASSWORD,
+  database: DATABASE_NAME,
 };
