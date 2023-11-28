@@ -3,6 +3,9 @@
 ## Visão Geral
 Esta API foi desenvolvida como teste tecnico para vaga backend na SCS, seu objetivo é gerenciar o cadastro, atualização, visualização e exclusão de produtos em uma plataforma. Utiliza TypeScript, o runtime Bun, princípios de Clean Architecture, Clean Code, e segue os princípios SOLID com injeção e inversão de dependências.
 
+## Desafio de origem
+Este projeto foi desenvolvido como parte de um desafio técnico. As instruções detalhadas e objetivos do desafio podem ser encontradas no seguinte repositório: [scs-desafio-backend](https://github.com/GeovaneCavalcante/scs-desafio-backend).
+
 ## Recursos-chave:
   - CRUD (Criar, Ler, Atualizar, Excluir) de contatos.
   - Associação de contatos a categorias.
@@ -38,7 +41,7 @@ A API oferece as seguintes funcionalidades:
 
 Antes de começar, certifique-se de ter instalado o seguinte:
 
-- Bun runtime: [Download Bun]([https://nodejs.org/](https://bun.sh/))
+- Bun runtime: [Download Bun](https://bun.sh/)
 
 ## Requisitos de Negócio
 
@@ -63,13 +66,16 @@ Siga os passos abaixo para configurar e executar o projeto localmente:
   bun install
   ```
 
-4. Iniciar servidor
+3. Iniciar servidor
 
   ```bash
   bun start
   ```
 
-### Executar testes unitarios
+## Testes unitários
+Para garantir a qualidade e a confiabilidade do software, foram implementados testes unitários abrangentes. Estes testes asseguram que cada componente da aplicação funcione corretamente de forma isolada, e contribuem significativamente para a manutenção e escalabilidade do projeto.
+
+### Para executar os testes unitários, utilize o seguinte comando:
 
   ```bash
   bun test
@@ -78,6 +84,5 @@ Siga os passos abaixo para configurar e executar o projeto localmente:
 ## Padrões de Código
 
 Este projeto segue padrões de código definidos pelo ESLint para manter a consistência e qualidade do código-fonte. O arquivo de configuração do ESLint pode ser encontrado em [.eslintrc.js](.eslintrc.js). Certifique-se de executar o linting do código antes de enviar pull requests para manter a conformidade com os padrões do projeto.
-
 
 This project was created using `bun init` in bun v1.0.4. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.
